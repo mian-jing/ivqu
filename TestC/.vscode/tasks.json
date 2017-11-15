@@ -13,7 +13,8 @@
                 "-Wall",
                 "-o",
                 "hello.exe",
-                "main.cpp"
+                "main.cpp",
+                "test.cpp"
             ],
             "group": {
                 "kind": "build",

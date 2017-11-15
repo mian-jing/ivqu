@@ -49,14 +49,14 @@ namespace TestCSharp
             for (int i=0; i < s.Length - 1; ++i)
             {
                 // // get longest palindrome with center of i
-                string tmp = helper(s, i, i);
+                string tmp = PalindromeHelper(s, i, i);
                 if (tmp.Length > longest.Length)
                 {
                     longest = tmp;
                 }
 
                 // get longest palindrome with center of i, i+1
-                tmp = helper(s, i, i + 1);
+                tmp = PalindromeHelper(s, i, i + 1);
                 if (tmp.Length > longest.Length)
                 {
                     longest = tmp;
@@ -67,7 +67,7 @@ namespace TestCSharp
             return longest;
         }
 
-        public string helper(string s, int begin, int end)
+        public string PalindromeHelper(string s, int begin, int end)
         {
             while (begin >= 0 && end < s.Length && s.Substring(begin, 1) == s.Substring(end, 1))
             {
@@ -76,6 +76,33 @@ namespace TestCSharp
             }
             int len = end - begin - 1;
             return s.Substring(begin + 1, len);
+        }
+
+        public int LongestPalindromeSubseqHelper(int[][] mem, string s, int left, int right)
+        {
+            int di = s.Length;
+            foreach (char ch in s)
+            {
+                while (left < di)
+                {
+                    if (s[left] == ch)
+                    {
+                        break;
+                    }
+                    left++;
+                }
+                while (right > 0)
+                {
+                    if (s[right - 1] == ch)
+                    {
+                        break;
+                    }
+                    right--;
+                }
+
+                mem[left, right-1] = (left == (right - 1)) ? 1 : 2 + LongestPalindromeSubseqHelper(mem, s, left + 1, right - 1);
+            }
+            return mem[]
         }
     }
 }

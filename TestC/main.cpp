@@ -1,6 +1,7 @@
-#include <map>
 #include <string>
 #include <iostream>
+#include <map>
+#include <unordered_map>
 
 template <typename M>
 void print(const M& m)
@@ -12,12 +13,12 @@ void print(const M& m)
         std::cout << "(" << p.first << ", " << p.second << ") ";
     }
 
-    std::cout << std::endl;
+    printf("\n");
 }
 
 void emplacetest()
 {
-    std::map<int, std::string> m1;
+    std::unordered_map<int, std::string> m1;
 
     auto ret = m1.emplace(10, "ten");
 
@@ -25,16 +26,16 @@ void emplacetest()
     {
         auto pr = *ret.first;
         std::cout << "Emplace failed, element with key 10 already exists."
-            << std::endl << "  The existing element is (" << pr.first << ", " << pr.second << ")"
-            << std::endl;
-        std::cout << "map not modified" << std::endl;
+            << "\n" << "  The existing element is (" << pr.first << ", " << pr.second << ")"
+            << "\n";
+        std::cout << "map not modified" << "\n";
     }
     else
     {
         std::cout << "map modified, now contains ";
         print(m1);
     }
-    std::cout << std::endl;
+    std::cout << "" << "\n";
 
     ret = m1.emplace(10, "one zero");
 
@@ -42,20 +43,20 @@ void emplacetest()
     {
         auto pr = *ret.first;
         std::cout << "Emplace failed, element with key 10 already exists."
-            << std::endl << "  The existing element is (" << pr.first << ", " << pr.second << ")"
-            << std::endl;
+            << "\n" << "  The existing element is (" << pr.first << ", " << pr.second << ")"
+            << "\n";
     }
     else
     {
         std::cout << "map modified, now contains ";
         print(m1);
     }
-    std::cout << std::endl;
+    std::cout << "" << "\n";
 }
 
 int main(int argc, char** argv)
 {
-    printf("Hello World\r\n");
+    std::cout << "Hello World\r\n";
     emplacetest();
     return 0;
 }
