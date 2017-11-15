@@ -18,8 +18,8 @@
             "browse": {
                 "path": [
                     "E:/mingw64/include/c++/7.2.0",
-                    "E:/mingw64/include/c++/7.2.0/x86_64-w64-mingw32"
-                    "E:/mingw64/mingw/include",
+                    "E:/mingw64/include/c++/7.2.0/x86_64-w64-mingw32",
+                    "E:/mingw64/mingw/include/*"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""

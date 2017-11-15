@@ -5,7 +5,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/hello.exe",
+            "program": "${workspaceRoot}/ivcoll-1.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceRoot}",

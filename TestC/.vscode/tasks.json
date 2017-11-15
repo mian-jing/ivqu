@@ -12,9 +12,13 @@
                 "-g",
                 "-Wall",
                 "-o",
-                "hello.exe",
+                "ivcoll-1.exe",
                 "main.cpp",
-                "test.cpp"
+                "mergesort.cpp",
+                "balancedp.cpp",
+                "heapsort.cpp",
+                "Queen.cpp",
+                "quicksort.cpp"
             ],
             "group": {
                 "kind": "build",

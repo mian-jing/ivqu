@@ -1,62 +1,49 @@
-#include <string>
 #include <iostream>
-#include <map>
-#include <unordered_map>
+#include <vector>
 
-template <typename M>
-void print(const M& m)
+void vectorTest()
 {
-    std::cout << m.size() << " elements: ";
+    std::vector<int> myvector(10);   // 10 zero-initialized elements
 
-    for (const auto& p : m)
+    std::vector<int>::size_type sz = 10;
+
+    // assign some values:
+    for (unsigned i=0; i<sz; i++)
     {
-        std::cout << "(" << p.first << ", " << p.second << ") ";
+        myvector[i]=i;
     }
 
-    printf("\n");
+    // reverse vector using operator[]:
+    for (unsigned i=0; i<sz/2; i++)
+    {
+        int temp;
+        temp = myvector[sz-1-i];
+        myvector[sz-1-i]=myvector[i];
+        myvector[i]=temp;
+    }
+
+    std::cout << "myvector contains:";
+    for (unsigned i=0; i<sz; i++)
+    {
+        std::cout << ' ' << myvector[i];
+    }
+    std::cout << std::endl;
 }
 
-void emplacetest()
-{
-    std::unordered_map<int, std::string> m1;
-
-    auto ret = m1.emplace(10, "ten");
-
-    if  (!ret.second)
-    {
-        auto pr = *ret.first;
-        std::cout << "Emplace failed, element with key 10 already exists."
-            << "\n" << "  The existing element is (" << pr.first << ", " << pr.second << ")"
-            << "\n";
-        std::cout << "map not modified" << "\n";
-    }
-    else
-    {
-        std::cout << "map modified, now contains ";
-        print(m1);
-    }
-    std::cout << "" << "\n";
-
-    ret = m1.emplace(10, "one zero");
-
-    if (!ret.second)
-    {
-        auto pr = *ret.first;
-        std::cout << "Emplace failed, element with key 10 already exists."
-            << "\n" << "  The existing element is (" << pr.first << ", " << pr.second << ")"
-            << "\n";
-    }
-    else
-    {
-        std::cout << "map modified, now contains ";
-        print(m1);
-    }
-    std::cout << "" << "\n";
-}
+extern void emplacetest();
+extern void mergeSortTest();
+extern void heapSortTest();
+extern void quickSortTest();
+extern bool solveNQ();
+extern int balancedP();
 
 int main(int argc, char** argv)
 {
-    std::cout << "Hello World\r\n";
-    emplacetest();
+    //emplacetest();
+    //mergeSortTest();
+    //heapSortTest();
+    //quickSortTest();
+    //solveNQ();
+    balancedP();
     return 0;
 }
